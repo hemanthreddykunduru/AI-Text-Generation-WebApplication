@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Generation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;ss
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007BFF;
+            font-size: 36px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        form {
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        p {
+            text-align: center;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            line-height: 1.4;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        /* Vote Up Button Styles */
+        .vote-button {
+            display: inline-block;
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        .vote-button:hover {
+            background-color: #218838;
+        }
+        .centering{
+            align-items:center;
+        }
+
+        /* Vote Count Styles */
+        #vote-count {
+            font-size: 24px;
+            color: #28a745;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Generation</h1>
+    <form method="POST">
+        <label for="prompt">Enter a prompt:</label>
+        <input type="text" name="prompt" id="prompt">
+        <input type="submit" value="Generate">
+    </form>
+    <div>
+        <h2>Generated Text:</h2>
+        <p>{{ generated_text }}</p>
+        <div class="centering"> 
+        <button class="vote-button" id="vote-button">Vote Up</button>
+        <span id="vote-count">0</span> votes
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for counting votes
+        let voteCount = 0;
+        const voteButton = document.getElementById('vote-button');
+        const voteCountElement = document.getElementById('vote-count');
+
+        voteButton.addEventListener('click', function () {
+            // Increment the vote count when the button is clicked
+            voteCount++;
+            voteCountElement.innerText = voteCount;
+        });
+    </script>
+</body>
+</html>
